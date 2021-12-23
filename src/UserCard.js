@@ -1,19 +1,8 @@
-import CardManButtons from "./CardManButtons";
-import NextButton from "./NextButton";
-import PrevButton from "./PrevButton";
 import data from "./data.js"
-import { useState } from "react";
 
-export default function UserCard() {
-    const [userCard, setUserCard] = useState(data[0])
-    const [cardIndex, setCardIndex] = useState(3)
 
-    const displayCard = (cardIndex) => {
-        setUserCard(data[cardIndex])
-        setCardIndex(cardIndex)
-    }
-
-    console.log(data.length);
+export default function UserCard({userCard, cardIndex, displayCard}) {
+   
 
     return (
         <div className="user-card">
@@ -31,9 +20,6 @@ export default function UserCard() {
                 <li>{userCard.favoriteMovies[1]}</li>
                 <li>{userCard.favoriteMovies[2]}</li>
             </ol>
-            {cardIndex !== 0 && <PrevButton displayCard={displayCard} cardIndex={cardIndex}/>}
-            <CardManButtons />
-            {cardIndex !== (data.length - 1) && <NextButton displayCard={displayCard} cardIndex={cardIndex}/>}
             
         </div>
     )
